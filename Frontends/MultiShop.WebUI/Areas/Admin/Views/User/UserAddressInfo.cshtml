@@ -1,0 +1,23 @@
+﻿@model GetCargoCustomerByIdDto
+@{
+    Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
+}
+
+
+<section class="content container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="chart-box">
+                <div class="bs-example" data-example-id="bordered-table">
+                    <h3>Kullanıcı Profil Bilgisi</h3>
+                    <div class="aler alert-info">Kullanıcı ID:@Model.cargoCustomerId</div>
+                    <div class="aler alert-warning">Kullanıcı Adı Soyadı:@Model.name @Model.surname</div>
+                    <div class="aler alert-info">Email:@Model.email</div>
+                    <div class="aler alert-warning">Telefon:@Model.phone</div>
+                    <div class="aler alert-info">İlçe-Şehir:@Model.disctrict @Model.city</div>
+                    <div class="aler alert-warning">Adres:@Model.address</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

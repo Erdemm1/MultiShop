@@ -1,0 +1,30 @@
+﻿@model List<ECommerceViewModel.Product>
+
+@{
+    ViewData["Title"] = "ECommerceList";
+}
+
+<div class="container">
+    <h2>E-Ticaret Ürün Listesi</h2>
+    <table class="table table-bordered">
+        <tr>
+            <th>#</th>
+            <th>Ürün Başlığı</th>
+            <th>Ürün Puanı</th>
+            <th>Ürün Fiyatı</th>
+            <th>Ürün Detayları</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.product_id</td>
+                <td>@item.product_title</td>
+                <td>@item.product_rating</td>
+                <td>@(item.offer != null ? item.offer.price : "Fiyat Bilinmiyor")</td>
+                <td><a href="@item.product_page_url" class="btn btn-primary" target="_blank">Ürün Detayları</a></td>
+            </tr>
+        }
+    </table>
+</div>
+
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />

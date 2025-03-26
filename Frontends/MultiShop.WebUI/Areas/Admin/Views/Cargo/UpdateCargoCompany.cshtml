@@ -1,0 +1,26 @@
+﻿@model UpdateCargoCompanyDto
+
+@{
+    Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
+}
+
+
+<section class="content container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="chart-box">
+                <div class="bs-example" data-example-id="bordered-table">
+                    <h4>Kargo Şirketi Güncelleme Sayfası</h4>
+                    <br />
+                    <form method="post">
+                        <input type="hidden" asp-for="cargoCompanyId"/>
+                        <label>Kargo Şirketi Adı</label>
+                        <input type="text" class="form-control" asp-for="cargoCompanyName" />
+                        <br />
+                        <button class="btn btn-primary">Kargo Şirketi Güncelle</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

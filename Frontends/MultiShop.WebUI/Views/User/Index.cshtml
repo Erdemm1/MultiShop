@@ -1,0 +1,99 @@
+﻿@model UserDetailViewModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kullanıcı Detayları</title>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        body {
+            background-color: #f4f6f9;
+        }
+
+        .card {
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .card-header {
+            background: linear-gradient(to right, #4A90E2, #50C878);
+            color: white;
+            padding: 15px;
+        }
+
+        .list-group-item {
+            background-color: transparent;
+            border-bottom: 1px solid #e0e0e0;
+            padding: 12px 15px;
+            transition: background-color 0.3s ease;
+        }
+
+            .list-group-item:hover {
+                background-color: rgba(240, 240, 240, 0.5);
+            }
+
+            .list-group-item strong {
+                color: #2c3e50;
+            }
+
+            .list-group-item span {
+                color: #34495e;
+                font-weight: 500;
+            }
+
+        .btn-custom {
+            transition: all 0.3s ease;
+            margin: 10px;
+        }
+
+            .btn-custom:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-6">
+                <div class="card shadow-lg">
+                    <div class="card-header text-center">
+                        <h4 class="mb-0">Kullanıcı Bilgileri</h4>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="list-group list-group-flush">
+                            <div class="list-group-item d-flex justify-content-between align-items-center">
+                                <strong>Kullanıcı Adı</strong>
+                                <span>@Model.Username</span>
+                            </div>
+                            <div class="list-group-item d-flex justify-content-between align-items-center">
+                                <strong>Ad Soyad</strong>
+                                <span>@Model.Name @Model.Surname</span>
+                            </div>
+                            <div class="list-group-item d-flex justify-content-between align-items-center">
+                                <strong>Email</strong>
+                                <span>@Model.Email</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer text-center">
+                        <a href="@Url.Action("Index", "Category", new { area = "Admin" })" class="btn btn-primary btn-custom">
+                            <i class="fas fa-list-alt mr-2"></i>Admin Sayfası
+                        </a>
+                        <a href="@Url.Action("Index", "Default")" class="btn btn-success btn-custom">
+                            <i class="fas fa-home mr-2"></i>Ana Sayfa
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</body>
+</html>

@@ -1,0 +1,55 @@
+﻿@model List<BasketItemDto>
+
+@if (Model != null && Model.Any())
+{
+    <div class="col-lg-8 table-responsive mb-5">
+        <table class="table table-light table-borderless table-hover text-center mb-0">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Ürün</th>
+                    <th>Fiyat</th>
+                    <th>Miktar</th>
+                    <th>Toplam</th>
+                    <th>Kaldır</th>
+                </tr>
+            </thead>
+            <tbody class="align-middle">
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td class="align-middle">
+                            <div class="d-flex align-items-center">
+                                <div style="width: 100px; height: 100px; overflow: hidden; display: flex; align-items: center; justify-content: center; margin-right: 10px;">
+                                    <img src="@item.ProductImageUrl" alt="@item.ProductName" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+                                </div>
+                                <span>@item.ProductName</span>
+                            </div>
+                        </td>
+                        <td class="align-middle">@item.Price ₺</td>
+                        <td class="align-middle">
+                            <div class="input-group quantity mx-auto" style="width: 100px;">
+                                <div class="input-group-btn">
+                                    <button class="btn btn-sm btn-primary btn-minus">
+                                        <i class="fa fa-minus"></i>
+                                    </button>
+                                </div>
+                                <input type="text" class="form-control form-control-sm bg-secondary border-0 text-center" value="@item.Quantity">
+                                <div class="input-group-btn">
+                                    <button class="btn btn-sm btn-primary btn-plus">
+                                        <i class="fa fa-plus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="align-middle">@(item.Price * item.Quantity) ₺</td>
+                        <td class="align-middle"><a href="/ShoppingCart/RemoveBasketItem/@item.ProductId" class="btn btn-sm btn-danger"><i class="fa fa-times"></i></a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    <p class="text-center text-muted">Sepetiniz boş.</p>
+}
